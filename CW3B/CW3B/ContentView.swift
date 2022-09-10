@@ -1,13 +1,13 @@
 //
 //  ContentView.swift
-//  CW3A
+//  CW3B
 //
 //  Created by Hessa AlMusafer on 10/09/2022.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct MyOtherApp: View {
     @State var grade = ""
     @State var result = ""
 
@@ -41,22 +41,30 @@ struct ContentView: View {
                     .onTapGesture {
                         if(Double(grade) ?? 0 >= 90.0)
                         {
-                            result = "A"
+                        Text("A")
+                                .bold()
+                                .font(.largeTitle)
                         }
                         
                         else if (Double(grade) ?? 0 >= 80.0)
                         {
-                            result = "B"
+                            Text("B")
+                                    .bold()
+                                    .font(.largeTitle)
                         }
                         
                         else if (Double(grade) ?? 0 >= 70.0)
                         {
-                            result = "C"
+                            Text("C")
+                                    .bold()
+                                    .font(.largeTitle)
                         }
                         
                         else if (Double(grade) ?? 0 >= 60.0)
                         {
-                            result = "D"
+                            Text("D")
+                                    .bold()
+                                    .font(.largeTitle)
                         }
                         
                         else if (Double(grade) ?? 0 < 60.0)
@@ -77,6 +85,17 @@ struct ContentView: View {
 
                 }
             
+    }
+}
+
+
+struct ContentView: View {
+    var body: some View {
+        HStack {
+            MyOtherApp()
+            MyOtherApp()
+            MyOtherApp()
+        }
     }
 }
 
