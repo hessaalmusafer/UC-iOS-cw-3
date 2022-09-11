@@ -17,75 +17,9 @@ struct ContentView: View
     {
         VStack
         {
-            HStack
-            {
-            Text("استغفر الله العظيم")
-                    .foregroundColor(.black)
-                    .bold()
-                    .font(.largeTitle)
-                ZStack
-                {
-                Circle()
-                    .frame(width: 110, height: 110)
-                    .foregroundColor(.brown)
-                    
-                    Text("\(counter1)")
-                        .bold()
-                        .font(.largeTitle)
-                }
-                .onTapGesture
-                {
-                    counter1 = counter1 + 1
-                }
-            }
-            
-            
-                HStack
-                {
-                Text("سبحان الله وبحمده")
-                        .foregroundColor(.black)
-                        .bold()
-                        .font(.largeTitle)
-                    ZStack
-                    {
-                    Circle()
-                        .frame(width: 110, height: 110)
-                        .foregroundColor(.brown)
-                        
-                        Text("\(counter2)")
-                            .bold()
-                            .font(.largeTitle)
-                    }
-                    .onTapGesture
-                    {
-                        counter2 = counter2 + 1
-                    }
-
-                }
-            
-            
-                HStack
-                {
-                Text("سبحان الله العظيم")
-                        .foregroundColor(.black)
-                        .bold()
-                        .font(.largeTitle)
-                    ZStack
-                    {
-                    Circle()
-                        .frame(width: 110, height: 110)
-                        .foregroundColor(.brown)
-                        
-                        Text("\(counter3)")
-                            .bold()
-                            .font(.largeTitle)
-                    }
-                    .onTapGesture
-                    {
-                        counter3 = counter3 + 1
-                    }
-
-                }
+            EstghfarCounter(text: "استغفر الله العظيم", counter: $counter1)
+            EstghfarCounter(text: "سبحان الله وبحمده", counter: $counter2)
+            EstghfarCounter(text: "سبحان الله العظيم", counter: $counter3)
         }
     }
 }
@@ -93,5 +27,34 @@ struct ContentView: View
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct EstghfarCounter: View {
+    var text: String
+    @Binding var counter: Int
+    var body: some View {
+        
+        HStack
+        {
+            Text(text)
+                .foregroundColor(.black)
+                .bold()
+                .font(.largeTitle)
+            ZStack
+            {
+                Circle()
+                    .frame(width: 110, height: 110)
+                    .foregroundColor(.brown)
+                
+                Text("\(counter)")
+                    .bold()
+                    .font(.largeTitle)
+            }
+            .onTapGesture
+            {
+                counter = counter + 1
+            }
+        }
     }
 }
